@@ -7,18 +7,18 @@ class Params{
   String brand = '';
   String gasType = '';
 
-getStations(var position)async{
+getStations(var lat, var lon)async{
       var _body;
       var url = 'https://gasprices.dna.lv/other/filterstations/?output=json';
 
       if(this.city == ''){
         print(this.gasType);
-         _body = {'lat': position.latitude.toString(), 'lon': position.longitude.toString(),
+         _body = {'lat': lat.toString(), 'lon': lon.toString(),
           'brand' : this.brand , 'fuel' : this.gasType};
       }
       else
         {
-          _body = {'brand' : this.brand, 'city' : this.city , 'fuel' : this.gasType , 'lat': position.latitude.toString(), 'lon': position.longitude.toString(),};
+          _body = {'brand' : this.brand, 'city' : this.city , 'fuel' : this.gasType , 'lat': lat.toString(), 'lon': lon.toString(),};
         }
 
       var response = await http.post(url, body: _body);

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "270447417244",
+    "firebase_url": "https://phone-app-858d0.firebaseio.com",
+    "project_id": "phone-app-858d0",
+    "storage_bucket": "phone-app-858d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270447417244:android:34311b4ced203d98809a59",
+        "android_client_info": {
+          "package_name": "com.example.degvielascenas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "270447417244-82j5uvh3vve8jvf9ju4u8igfo3b8girb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqooy-a4nHYlMgWQRbmUoUgSMuJ9EDi2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "270447417244-82j5uvh3vve8jvf9ju4u8igfo3b8girb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
