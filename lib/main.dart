@@ -19,14 +19,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: data,
         debugShowCheckedModeBanner: false,
-            home: AnimatedSplashScreen(
-              splash: 'assets/logo.jpeg',
-              nextScreen: MainWindow(),
-              duration: 600,
-              backgroundColor: Colors.white,
-              splashTransition: SplashTransition.rotationTransition,
+              home: MainWindow(),
 
-            )
+
+
     );
   }
 }

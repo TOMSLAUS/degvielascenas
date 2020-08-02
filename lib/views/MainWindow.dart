@@ -9,6 +9,7 @@ import 'dart:convert';
 import 'package:geolocator/geolocator.dart';
 import 'package:degvielascenas/Params.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 
 //##todo pull to refresh
 class MainWindow extends StatefulWidget {
@@ -65,7 +66,6 @@ class _MainWindowState extends State<MainWindow> {
     setState(() {});
     return completer.future;
   }
-
 
   DropdownButton _citiesDown() => DropdownButton<String>(
         isExpanded: true,
@@ -300,7 +300,7 @@ class _MainWindowState extends State<MainWindow> {
                       SizedBox(
                         height: 5,
                       ),
-
+                      
                       Center(
                           child: Container(
                         child: _gasStationDown(),
@@ -345,9 +345,10 @@ class _MainWindowState extends State<MainWindow> {
                     } else {
                       return LiquidPullToRefresh(
                         onRefresh: _refreshCards,
-                        child: ListView(
-
-                            children: _cards,
+                        child: ListView.builder(
+                          itemCount: _cards.length,
+                          shrinkWrap: true,
+                          itemBuilder: (context,index)=> _cards[index],
                         ),
                       );
                     }

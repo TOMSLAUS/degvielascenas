@@ -1,14 +1,19 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'dart:async';
+
+import 'package:degvielascenas/views/MainWindow.dart';
 import 'package:degvielascenas/reusables/GasPriceCard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'dart:math';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:map_launcher/map_launcher.dart';
 
 class GasStation extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<LiquidPullToRefreshState> _refreshIndicatorKey =
+  GlobalKey<LiquidPullToRefreshState>();
   var _gasStation;
   var rng = new Random();
   List<Widget> cards = new List();
@@ -23,6 +28,7 @@ class GasStation extends StatelessWidget {
     availableApps = await MapLauncher.installedMaps;
     print(availableApps);
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +57,7 @@ class GasStation extends StatelessWidget {
                           alignment: FractionalOffset.topCenter,
                           image: NetworkImage(
                             'https://gasprices.dna.lv/imagetemp'
-                            '/?lat=${_gasStation.lat.toString()}&lon=${_gasStation.lon.toString()}',
+                                '/?lat=${_gasStation.lat.toString()}&lon=${_gasStation.lon.toString()}',
                           ),
                         ),
                       ),
@@ -163,19 +169,19 @@ class GasStation extends StatelessWidget {
                     children: [
                       Center(
                           child: Text(
-                        _gasStation.gasStationName,
-                        style: TextStyle(fontSize: 25),
-                      )),
+                            _gasStation.gasStationName,
+                            style: TextStyle(fontSize: 25),
+                          )),
                       SizedBox(
                         height: 5,
                       ),
                       Center(
                           child: Text(
-                        _gasStation.location,
-                        style: TextStyle(
-                          fontSize: 25,
-                        ),
-                      )),
+                            _gasStation.location,
+                            style: TextStyle(
+                              fontSize: 25,
+                            ),
+                          )),
                       SizedBox(
                         height: 5,
                       ),
